@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${plexSans.variable} ${plexMono.variable} antialiased`}>
+        <Header />
         {children}
       </body>
     </html>
