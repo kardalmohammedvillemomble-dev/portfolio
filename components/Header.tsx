@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
@@ -13,6 +14,7 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
@@ -23,13 +25,20 @@ export default function Header() {
 
         <nav aria-label="Navigation principale" className="hidden sm:block">
           <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="hover:text-accent">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={active ? "text-accent" : "hover:text-accent"}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -54,17 +63,21 @@ export default function Header() {
       {open && (
         <nav id="mobile-nav" aria-label="Navigation mobile" className="border-t border-border sm:hidden">
           <ul className="flex flex-col px-6 py-3 text-sm text-muted">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-2 hover:text-accent"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`block py-2 ${active ? "text-accent" : "hover:text-accent"}`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}

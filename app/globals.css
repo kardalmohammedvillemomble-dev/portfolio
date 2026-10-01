@@ -35,3 +35,13 @@ body {
     linear-gradient(to bottom, rgba(22, 33, 58, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
+
+a, button {
+  transition: color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

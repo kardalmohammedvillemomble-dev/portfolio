@@ -122,10 +122,14 @@ export default function Contact() {
           </button>
 
           {status === "success" && (
-            <p className="text-sm text-accent">Message envoyé, merci !</p>
+            <p className="text-sm text-accent" aria-live="polite">
+              Message envoyé, merci !
+            </p>
           )}
           {status === "error" && (
-            <p className="text-sm text-red-600">{errorMessage}</p>
+            <p className="text-sm text-red-600" aria-live="polite">
+              {errorMessage}
+            </p>
           )}
         </form>
       </div>
