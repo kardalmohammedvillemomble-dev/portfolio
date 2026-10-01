@@ -17,9 +17,27 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mohammed Kardal — Ingénieur Études & Développement",
+  metadataBase: new URL("https://mohammed-kardal.vercel.app"),
+  title: {
+    default: "Mohammed Kardal — Ingénieur Études & Développement",
+    template: "%s · Mohammed Kardal",
+  },
   description:
     "Portfolio de Mohammed Kardal : développement full-stack et systèmes IBM i / AS400.",
+  openGraph: {
+    title: "Mohammed Kardal — Ingénieur Études & Développement",
+    description:
+      "Développement full-stack (Django, Symfony, Vue.js, React) et administration de systèmes IBM i / AS400.",
+    siteName: "Mohammed Kardal",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mohammed Kardal — Ingénieur Études & Développement",
+    description:
+      "Développement full-stack (Django, Symfony, Vue.js, React) et administration de systèmes IBM i / AS400.",
+  },
 };
 
 export default function RootLayout({
