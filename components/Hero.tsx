@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section className="bg-grid border-b border-border">
@@ -22,17 +24,18 @@ export default function Hero() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           
-          <a  href="#projects"
+          <Link
+            href="/projects"
             className="rounded bg-accent px-5 py-2.5 font-medium text-white hover:opacity-90"
           >
-            Voir mes projets
-          </a>
-          
-          <a  href="#contact"
+          Voir mes projets
+          </Link>
+          <Link
+            href="/contact"
             className="rounded border border-border px-5 py-2.5 font-medium hover:border-accent hover:text-accent"
           >
-            Me contacter
-          </a>
+          Me contacter
+          </Link>
         </div>
 
         <p className="mt-10 font-mono text-sm text-muted">
