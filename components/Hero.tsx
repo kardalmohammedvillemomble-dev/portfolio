@@ -36,6 +36,20 @@ export default function Hero() {
           >
           Me contacter
           </Link>
+
+
+
+          <a
+            href="/cv.pdf"
+            download
+            className="rounded border border-border px-5 py-2.5 font-medium hover:border-accent hover:text-accent"
+          >
+          Télécharger mon CV
+          </a>
+
+
+
+
         </div>
 
         <p className="mt-10 font-mono text-sm text-muted">
